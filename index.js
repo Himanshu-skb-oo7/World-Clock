@@ -8,26 +8,33 @@ setInterval(() => {
   let minute = document.getElementsByClassName("minute");
   let hour = document.getElementsByClassName("hour");
   let second = document.getElementsByClassName("second");
- 
   let span = document.getElementsByTagName("span");
+  let dateDiv = document.getElementsByClassName("innerDate");
+  let timeZoneDiv = document.getElementsByClassName("Date");
+
 
   for(var i=0;i<minute.length;i++)
   {
 
-    let hr= parseInt(span[i].innerText.split(":")[0]);
-    let mn= parseInt(span[i].innerText.split(":")[1]);
 
+
+    let newDate= new Date().toLocaleString('en-US', { timeZone: timeZoneDiv[i].innerText }).split(" ")[1].split(":");
+
+     
     let S = new Date().getSeconds() * 6 - 90;
-    let M = (new Date().getMinutes()+mn+30)%60 * 6 - 90;
-    let H = (new Date().getHours()+hr+19)%24 * 30 - 90;
-    
+    let M = (parseInt(newDate[1])+ parseInt(newDate[2])/60)* 6 - 90;
+    let H = (parseInt(newDate[0])+ parseInt(newDate[1])/60)*30 - 90;
+    //console.log(H);
     second[i].style.transform = 'rotate(' + S + 'deg)';
     minute[i].style.transform = 'rotate(' + M + 'deg)';
     hour[i].style.transform = 'rotate(' + H + 'deg)';
-  
+    dateDiv[i].innerText= new Date().toLocaleString('en-US', { timeZone: timeZoneDiv[i].innerText });
+
+
+
   }
   
-  
+    
 }, 10);
 
 function vec2ang(x, y) {

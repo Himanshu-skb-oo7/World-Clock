@@ -6,6 +6,28 @@ body
   width: 100%; 
 }
 
+.header
+{
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 300%;
+  margin: auto;
+  margin-bottom: 15px;
+  background-color: #FF9933;
+  overflow: hidden;
+  float: left;
+  display: flex;
+}
+
+p
+{
+  margin: auto; 
+  text-align: center;
+  text-decoration-color: 
+}
+
 .col-lg-4, .col-md-6, .col-sm-12 ,.col-xs-12
 {
   margin: 10px auto;
@@ -46,10 +68,25 @@ div { border: 1px solid transparent; }
 /* -- Center of the clock -- */
 .center { position: absolute; top: 118px; left: 120px; width: 16px; height: 16px; background: white; border: 1px solid gray; border-radius: 16px; }
 /* -- "HTML clock"  in a box -- */
-.brand { position: absolute; top: 110px; left: 155px; border: 1px solid gray; border-radius: 5px; width: 70px; height: 40px; font-family: Verdana; font-size: 11px; text-align: center; line-height: 20px; }
+.brand { position: absolute; top: 110px; left: 150px; border: 1px solid gray; border-radius: 5px; width: 70px; height: 40px; font-family: Verdana; font-size: 11px; text-align: center; line-height: 20px; }
 /* -- Notches container -- */
 .notch-container { width: 260px; height: 260px }
 /* -- Hourly notch (thicker, but sparse) -- */
 .notch { position: absolute; width: 10px; height: 2px; background: black; border-radius: 5px 5px 5px 5px; }
 /* -- Minute notch (thin) -- */
 .thin { position: absolute; width: 10px; height: 1px; border-top: 1px solid gray; }
+
+.Date, .innerDate { position: absolute; top: 50px; margin-left: auto ; margin-right: auto; width: 100%;height: 40px;  font-family: Verdana; font-size: 11px; text-align: center; line-height: 20px; }
+
+.innerDate{
+
+  top: 70px;
+  font-weight: bold;
+}
+
+.Date
+{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
