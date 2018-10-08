@@ -2,24 +2,24 @@
 function deg2rad(d) { return (2 * d / 360) * Math.PI; }
 /* -- Progress the clock's hands every once in a while -- */
 
-var Dates = new Array(document.getElementsByClassName("minute").length);
-
-for(var i=0;i<Dates.length;i++)
-{
-  Dates[i]=new Date();
-}
 
 
 setInterval(() => {
   let minute = document.getElementsByClassName("minute");
   let hour = document.getElementsByClassName("hour");
   let second = document.getElementsByClassName("second");
+ 
+  let span = document.getElementsByTagName("span");
 
   for(var i=0;i<minute.length;i++)
   {
-    let S = Dates[i].getSeconds() * 6 - 90;
-    let M = Dates[i].getMinutes() * 6 - 90;
-    let H = Dates[i].getHours() * 30 - 90;
+
+    let hr= parseInt(span[i].innerText.split(":")[0]);
+    let mn= parseInt(span[i].innerText.split(":")[1]);
+
+    let S = new Date().getSeconds() * 6 - 90;
+    let M = (new Date().getMinutes()+mn+30)%60 * 6 - 90;
+    let H = (new Date().getHours()+hr+19)%24 * 30 - 90;
     
     second[i].style.transform = 'rotate(' + S + 'deg)';
     minute[i].style.transform = 'rotate(' + M + 'deg)';
